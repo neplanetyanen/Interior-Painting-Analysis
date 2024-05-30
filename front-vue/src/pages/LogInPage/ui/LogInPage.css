@@ -1,0 +1,5 @@
+.auth {
+    height: 772px;
+    background-image: url('@/shared/assets/background/Auth.svg');
+    padding: 25px 0px;
+}

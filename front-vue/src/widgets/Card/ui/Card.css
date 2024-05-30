@@ -1,0 +1,14 @@
+.default {
+    background-color: var(--qwarz-main-primary);
+    padding: 30px;
+    min-height: 548px;
+}
+
+.colored {
+    background-color: var(--qwarz-content-primary);
+    padding: 30px;
+}
+
+.top-line {
+    float: right;
+}

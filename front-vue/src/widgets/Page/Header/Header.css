@@ -1,0 +1,43 @@
+.fixed {
+    z-index: var(--not-content-z-index);
+    position: fixed;
+    width: 100%;
+}
+
+.header {
+    padding: 6px 52px;
+    background-color: var(--qwarz-main-primary);
+    width: 100%;
+}
+
+.common-header {
+    min-width: 1496px;
+    margin: auto;
+}
+
+.user-bar {
+    transition: var(--transition-speed-fast);
+    cursor: pointer;
+}
+
+.user-btn {
+    transition: var(--transition-speed-fast);
+}
+
+.user-bar:hover .user-btn {
+    transform: translateY(6px);
+}
+
+.user-menu {
+    padding: 0px 52px;
+    max-height: 0px;
+    overflow: hidden;
+}
+
+.user-menu.active {
+    max-height: 400px;
+}
+
+.icon {
+    cursor: pointer;
+}

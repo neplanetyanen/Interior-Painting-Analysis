@@ -1,0 +1,57 @@
+.history-carousel {
+    width: 1420px;
+    height: 366px;
+}
+
+.block-carousel {
+    width: 1204px;
+    height: 350px;
+    padding: 0px 27px;
+    background-color: var(--qwarz-main-primary);
+    overflow: hidden;
+}
+
+.carousel {
+    transition: var(--transition-speed-medium);
+}
+
+.border-painting {
+    padding: 27px 25px;
+}
+
+.painting {
+    object-fit: cover;
+    width: 330px;
+    height: 300px;
+    border: var(--border-l) solid var(--qwarz-border-primary);
+    cursor: pointer;
+    transition: var(--transition-speed-fast);
+}
+
+.painting.red-border-carousel {
+    border: var(--border-l) solid var(--qwarz-content-secondary);
+}
+
+.btn-carousel {
+    cursor: pointer;
+}
+
+.loader-block {
+    width: 1420px;
+    height: 366px;
+    background-color: var(--qwarz-content-primary);
+}
+
+.loader {
+    margin: auto;
+    animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

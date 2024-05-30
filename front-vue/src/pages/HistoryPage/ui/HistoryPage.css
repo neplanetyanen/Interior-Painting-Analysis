@@ -1,0 +1,23 @@
+.result-create {
+    padding: 65px;
+}
+.result-interior {
+    max-width: 530px;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.create-link {
+    transition: var(--transition-speed-fast);
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--qwarz-main-tertiary);
+}
+
+.create-link:hover {
+    color: var(--qwarz-main-secondary);
+}
+
+.paintings-information {
+    padding-left: 90px;
+}

@@ -1,0 +1,13 @@
+@import url('./variables/global.css');
+@import url('./fonts.css');
+@import url('./reset.css');
+
+body {
+    font: var(--font-s);
+    background: var(--qwarz-main-primary);
+    margin: 0 auto;
+}
+
+#app {
+    min-height: 100vh;
+}

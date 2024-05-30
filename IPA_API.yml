@@ -1,0 +1,327 @@
+openapi: "3.0.2"
+info:
+  title: OpenAPI IPA.io
+  version: "1.0"
+servers:
+  - url: https://127.0.0.1/ - Local Server
+
+components:
+  schemas:
+    loginSchema:
+      type: object
+      properties:
+        username:
+          type: string
+          example: creeper2010
+          maxLength: 30
+          minLength: 5
+          nullable: false
+          required: true
+        password:
+          type: string
+          example: crutoy02122010
+          minLength: 8
+          nullable: false
+          required: true
+    signupSchema:
+      type: object
+      properties:
+        username:
+          type: string
+          example: creeper2010
+          maxLength: 30
+          minLength: 5
+          nullable: false
+          required: true
+        password:
+          type: string
+          example: crutoy02122010
+          minLength: 8
+          nullable: false
+          required: true
+        email:
+          type: string
+          example: crutoy@inbox.ru
+          minLength: 1
+          nullable: false
+          required: true
+    userSchema:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 8
+          nullable: false
+        username:
+          type: string
+          example: creeper2010
+          nullable: false
+        avatar:
+          type: string
+          format: byte
+          example: https://artworld.ru//images/de3.jpg
+          nullable: false
+    paintingSchema:
+      type: object
+      properties:
+        url:
+          type: string
+          format: byte
+          example: https://artworld.ru//images/de3.jpg
+          nullable: false
+    topPaintingsSchema:
+      type: object
+      properties:
+        interior:
+          type: string
+          format: byte
+          example: https://artworld.ru//images/de3.jpg
+          nullable: false
+        topPaintings:
+          type: array
+          items:
+            type: string
+            format: byte
+          minItems: 5
+          maxItems: 5
+          example:
+            [
+              https://artworld.ru//images/fd1.jpg,
+              https://artworld.ru//images/fd4.jpg,
+              https://artworld.ru//images/fd8.jpg,
+              https://artworld.ru//images/fd2.jpg,
+              https://artworld.ru//images/fd3.jpg,
+            ]
+
+    historySchema:
+      type: object
+      properties:
+        _{idRequest}:
+          type: object
+          properties:
+            interior:
+              type: string
+              format: byte
+              example: https://artworld.ru//images/de3.jpg
+              nullable: false
+            topPaintings:
+              type: array
+              items:
+                type: string
+                format: byte
+              minItems: 5
+              maxItems: 5
+              example:
+                [
+                  https://artworld.ru//images/fd1.jpg,
+                  https://artworld.ru//images/fd4.jpg,
+                  https://artworld.ru//images/fd8.jpg,
+                  https://artworld.ru//images/fd2.jpg,
+                  https://artworld.ru//images/fd3.jpg,
+                ]
+
+paths:
+  /auth/login:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/loginSchema"
+      summary: Логин пользователя
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/userSchema"
+        "400":
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: INVALID_LENGTH
+        "404":
+          description: NOT FOUND
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: USER_NOT_FOUND
+        "409":
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: INCORRECT_PASSWORD
+  /auth/signup:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/signupSchema"
+      summary: Регистрация пользователя
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/userSchema"
+        "400":
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: INVALID_LENGTH
+        "409":
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: USERNAME_ALREADY_EXISTS
+
+  /auth/logout:
+    post:
+      summary: Выход из приложения и сбор токенов
+      responses:
+        "200":
+          description: Выводит {logout = true}, сбрасывает токены
+        "401":
+          description: UNAUTHORIZED
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: NO_TOKEN_PROVIDED
+
+  /auth/refresh:
+    post:
+      summary: Запросить новый токен, когда истек срок старого
+      description: Когда token истекает, используется refresh-token для его обновления. Если refresh-token истекает, необходимо заново залогиниться.
+      responses:
+        "200":
+          description: Выводит {refresh = true}, ставит новый токен
+        "401":
+          description: UNAUTHORIZED
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: NO_FRESH_TOKEN_PROVIDED
+
+  /users/{id}/interior:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/paintingSchema"
+      summary: Отбор наиболее подходящих картин для изображения интерьера, отправленного пользователем
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/topPaintingsSchema"
+        "400":
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: INVALID_FORMAT
+
+        "401":
+          description: UNAUTHORIZED
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: TOKEN_HAS_EXPIRED
+  /users/{id}/history:
+    get:
+      summary: Получение истории запросов пользователя
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/historySchema"
+        "401":
+          description: UNAUTHORIZED
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: TOKEN_HAS_EXPIRED
+  /user/{id}:
+    patch:
+      summary: Пользователь обновляет данные аккаунта
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/userSchema"
+        "400":
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: INVALID_LENGTH
+
+        "401":
+          description: UNAUTHORIZED
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: TOKEN_HAS_EXPIRED
+
+        "409":
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: USERNAME_ALREADY_EXISTSS

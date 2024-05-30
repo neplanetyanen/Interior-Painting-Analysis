@@ -1,0 +1,42 @@
+{
+    "0": {
+        "interior": "src/shared/assets/fakeJSON/fakeJSONHistory/Interior.png",
+        "topPaintings": [
+            "src/shared/assets/fakeJSON/fakeJSONHistory/First.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Second.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Third.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Fourth.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Fifth.png"
+        ]
+    },
+    "1": {
+        "interior": "src/shared/assets/fakeJSON/fakeJSONHistory/Tropical_Interior.png",
+        "topPaintings": [
+            "src/shared/assets/fakeJSON/fakeJSONHistory/First.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Delicate_Interior.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Third.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Fourth.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Fifth.png"
+        ]
+    },
+    "2": {
+        "interior": "src/shared/assets/fakeJSON/fakeJSONHistory/Delicate_Interior.png",
+        "topPaintings": [
+            "src/shared/assets/fakeJSON/fakeJSONHistory/First.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Delicate_Interior.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Tropical_Interior.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Fourth.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Fifth.png"
+        ]
+    },
+    "3": {
+        "interior": "src/shared/assets/fakeJSON/fakeJSONHistory/Marine_Interior.png",
+        "topPaintings": [
+            "src/shared/assets/fakeJSON/fakeJSONHistory/First.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Delicate_Interior.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Tropical_Interior.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Fourth.png",
+            "src/shared/assets/fakeJSON/fakeJSONHistory/Second.png"
+        ]
+    }
+}

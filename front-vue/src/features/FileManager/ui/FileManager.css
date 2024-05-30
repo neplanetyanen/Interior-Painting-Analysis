@@ -1,0 +1,43 @@
+.file-manager {
+    background-color: var(--qwarz-main-primary);
+    border: var(--border-xl) solid var(--qwarz-border-primary);
+    min-width: 960px;
+    height: 340px;
+    padding: 50px 25px 10px;
+    transition: var(--transition-speed-medium);
+}
+
+.file-manager.drag-over {
+    background-color: var(--qwarz-content-primary);
+    border: var(--border-xl) solid var(--qwarz-main-primary);
+    padding: 50px 25px 10px;
+}
+
+.link-file-manager {
+    transition: var(--transition-speed-fast);
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--qwarz-border-primary);
+}
+
+.link-file-manager:hover {
+    color: var(--qwarz-content-primary);
+}
+
+.text-drag-over {
+    pointer-events: none;
+}
+
+.loader {
+    margin: auto;
+    animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

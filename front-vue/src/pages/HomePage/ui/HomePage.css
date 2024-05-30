@@ -1,0 +1,45 @@
+.interior {
+    background-image: url('@/shared/assets/background/Interior.svg');
+    padding: 80px 130px;
+    min-height: 778px;
+}
+
+.square-interior-with-figures {
+    background-image: url('@/shared/assets/background/SquareInteriorWithFigures.svg');
+    padding: 155px 270px;
+    min-height: 917px;
+}
+
+.colored-card {
+    max-width: 530px;
+    min-height: 350px;
+}
+
+.small-default-card {
+    max-width: 430px;
+    min-height: 500px;
+}
+
+.card-with-horizontal-lines {
+    background-image: url('@/shared/assets/background/BackgroundWithHorizontalLines.svg');
+    padding: 130px 55px;
+    max-height: 478px;
+}
+
+.card-with-vertical-lines {
+    background-image: url('@/shared/assets/background/BackgroundWithVerticalLines.svg');
+    padding: 30px 95px;
+    min-height: 239px;
+    width: 100%;
+    text-align: center;
+}
+
+.round-interior-with-figures {
+    background-image: url('@/shared/assets/background/RoundInteriorWithFigures.svg');
+    min-height: 896px;
+}
+
+.default-card {
+    max-width: 880px;
+    min-height: 515px;
+}

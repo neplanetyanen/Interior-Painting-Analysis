@@ -1,0 +1,15 @@
+.container {
+    padding-top: 52px;
+}
+
+.white-black {
+    background: var(--qwarz-background-primary);
+}
+
+.blue-black {
+    background: var(--qwarz-background-secondary);
+}
+
+.container-with-welcome-block {
+    padding-top: auto;
+}

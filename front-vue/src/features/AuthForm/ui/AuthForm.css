@@ -1,0 +1,15 @@
+.auth-form {
+    max-width: 625px;
+    background-color: var(--qwarz-main-primary);
+    padding: 45px 50px;
+    transition: all 1s;
+}
+
+form {
+    width: 100%;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+    cursor: default;
+}
